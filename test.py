@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 
 
 
@@ -10,8 +10,9 @@ app = Flask(__name__)
 def phone_number():
     if request.method == 'POST':
         phoneNumber = request.form['phonenumber']
-    else:
-        pass
+        print(phoneNumber)
+        return redirect('/code')
+    
     return render_template('1.html')
 
 
@@ -19,8 +20,11 @@ def phone_number():
 def send_code():
     if request.method == 'POST':
         sendcode = request.form['title']
-    else:
-        pass
+
+        print(sendcode)
+
+        return redirect('/code/groopresend')
+    
     return render_template('2.html')
 
 
@@ -30,8 +34,11 @@ def groop_resend():
         input_canals_list = request.form['input_canals_list']
         search_text = request.form['search_text']
         output_canals_list = request.form['output_canals_list']
-    else:
-        pass
+
+        print(input_canals_list, search_text, output_canals_list, sep='\n')
+
+        return redirect('/code/groopresend/endpage')
+    
     return render_template('3.html')
 
 
