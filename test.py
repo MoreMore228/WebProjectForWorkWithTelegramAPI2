@@ -5,9 +5,6 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'bc916900ed8190ab5ffa1943c63827ae3317d303'
 
 
-
-
-
 @app.route('/', methods=['POST', 'GET'])
 def phone_number():
     if request.method == 'POST':
